@@ -27,8 +27,13 @@ public class CartPage
 
         for(WebElement element : cartItems)
         {
-            String name = element.findElement(By.className("inventory_item_name")).getText();
-            if(!element.findElement(By.className("cart_quantity")).getText().equals("1")
+            String name = element
+                    .findElement(By.className("inventory_item_name"))
+                    .getText();
+            if(!element
+                    .findElement(By.className("cart_quantity"))
+                    .getText()
+                    .equals("1")
                 || !itemNames.contains(name))
             {
                 return false;

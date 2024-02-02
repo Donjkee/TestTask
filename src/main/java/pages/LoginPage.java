@@ -49,8 +49,9 @@ public class LoginPage
     {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement errorElement = wait.until(ExpectedConditions.visibilityOfElementLocated
-                    (By.xpath("//h3[@data-test='error']")));
+            WebElement errorElement = wait
+                    .until(ExpectedConditions
+                            .visibilityOfElementLocated(By.xpath("//h3[@data-test='error']")));
             return errorElement.isDisplayed();
         } catch (TimeoutException e)
         {

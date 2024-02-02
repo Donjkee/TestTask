@@ -66,7 +66,9 @@ public class CheckoutOverviewPage {
         double price = 0.0;
         List<WebElement> pricesList = getInventoryItemPrices();
         for (WebElement element : pricesList) {
-            String currentPrice = element.getText().replaceAll("[^\\d.]", "");
+            String currentPrice = element
+                    .getText()
+                    .replaceAll("[^\\d.]", "");
             price += Double.parseDouble(currentPrice);
         }
         return price;
@@ -90,7 +92,9 @@ public class CheckoutOverviewPage {
     }
 
     private double getSubtotalValue() {
-        String realPrice = getSubtotalLabel().getText().replaceAll("[^\\d.]", "");
+        String realPrice = getSubtotalLabel()
+                .getText()
+                .replaceAll("[^\\d.]", "");
         return Double.parseDouble(realPrice);
     }
 
@@ -99,7 +103,9 @@ public class CheckoutOverviewPage {
     }
 
     private double getTaxValue() {
-        String taxPrice = getTaxLabel().getText().replaceAll("[^\\d.]", "");
+        String taxPrice = getTaxLabel()
+                .getText()
+                .replaceAll("[^\\d.]", "");
         return Double.parseDouble(taxPrice);
     }
 
