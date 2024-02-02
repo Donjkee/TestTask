@@ -27,7 +27,9 @@ public class LogoutPage
     {
         reactBurgerMenuBtn.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement logout = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("logout_sidebar_link"))));
+        WebElement logout = wait
+                .until(ExpectedConditions
+                        .visibilityOf(driver.findElement(By.id("logout_sidebar_link"))));
         logout.click();
     }
 }

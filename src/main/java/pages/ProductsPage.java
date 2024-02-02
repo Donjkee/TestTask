@@ -34,9 +34,14 @@ public class ProductsPage
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         for (WebElement element : itemsList) {
-            String itemName = element.findElement(By.className("inventory_item_name")).getText();
+            String itemName = element
+                    .findElement(By.className("inventory_item_name"))
+                    .getText();
             if (itemNames.contains(itemName)) {
-                WebElement button = wait.until(ExpectedConditions.elementToBeClickable(element.findElement(By.tagName("button"))));
+                WebElement button = wait
+                        .until(ExpectedConditions
+                                .elementToBeClickable(element.findElement(By.tagName("button"))));
+
                 if (!button.getAttribute("name").contains("remove")) {
                     button.click();
                 }
@@ -47,7 +52,9 @@ public class ProductsPage
     public int howMuchElementsAdded() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement shoppingCartBadge = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("shopping_cart_badge")));
+            WebElement shoppingCartBadge = wait
+                    .until(ExpectedConditions
+                            .presenceOfElementLocated(By.className("shopping_cart_badge")));
             return Integer.parseInt(shoppingCartBadge.getText());
         } catch (NoSuchElementException e) {
             return 0;
